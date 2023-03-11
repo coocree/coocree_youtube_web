@@ -15,10 +15,10 @@ import 'platform_view_stub.dart' if (dart.library.html) 'dart:ui' as ui;
 /// An implementation of [PlatformWebViewControllerCreationParams] using Flutter
 /// for Web API.
 @immutable
-class WebYoutubePlayerIframeControllerCreationParams
+class YoutubeWebParams
     extends PlatformWebViewControllerCreationParams {
-  /// Creates a [WebYoutubePlayerIframeControllerCreationParams] instance based on [PlatformWebViewControllerCreationParams].
-  WebYoutubePlayerIframeControllerCreationParams.fromPlatformWebViewControllerCreationParams(
+  /// Creates a [YoutubeWebParams] instance based on [PlatformWebViewControllerCreationParams].
+  YoutubeWebParams.fromPlatformWebViewControllerCreationParams(
       // Recommended placeholder to prevent being broken by platform interface.
       // ignore: avoid_unused_constructor_parameters
       PlatformWebViewControllerCreationParams params,

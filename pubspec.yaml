@@ -12,8 +12,8 @@ flutter:
     implements: youtube_player_iframe
     platforms:
       web:
-        pluginClass: WebYoutubePlayerIframePlatform
-        fileName: src/web_youtube_player_iframe_platform.dart
+        pluginClass: YoutubeWebPlatform
+        fileName: src/youtube_web_platform.dart
 
 dependencies:
   flutter:

@@ -4,23 +4,23 @@
 
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
-import 'package:coocree_youtube_web/src/web_youtube_player_iframe_controller.dart';
-import 'package:coocree_youtube_web/src/youtube_player_iframe_web.dart';
+import 'package:coocree_youtube_web/src/youtube_web_controller.dart';
+import 'package:coocree_youtube_web/src/youtube_web_player.dart';
 
 /// An implementation of [WebViewPlatform] using Flutter for Web API.
-class WebYoutubePlayerIframePlatform extends WebViewPlatform {
+class YoutubeWebPlatform extends WebViewPlatform {
   @override
   PlatformWebViewController createPlatformWebViewController(
     PlatformWebViewControllerCreationParams params,
   ) {
-    return WebYoutubePlayerIframeController(params);
+    return YoutubeWebController(params);
   }
 
   @override
   PlatformWebViewWidget createPlatformWebViewWidget(
     PlatformWebViewWidgetCreationParams params,
   ) {
-    return YoutubePlayerIframeWeb(params);
+    return YoutubeWebPlayer(params);
   }
 
   @override
@@ -32,7 +32,7 @@ class WebYoutubePlayerIframePlatform extends WebViewPlatform {
 
   /// Gets called when the plugin is registered.
   static void registerWith(Registrar registrar) {
-    WebViewPlatform.instance = WebYoutubePlayerIframePlatform();
+    WebViewPlatform.instance = YoutubeWebPlatform();
   }
 }
 

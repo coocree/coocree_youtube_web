@@ -10,21 +10,21 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 
-import 'web_youtube_player_iframe_controller_creation_params.dart';
+import 'youtube_web_params.dart';
 
 /// An implementation of [PlatformWebViewController] using Flutter for Web API.
-class WebYoutubePlayerIframeController extends PlatformWebViewController {
-  /// Constructs a [WebYoutubePlayerIframeController].
-  WebYoutubePlayerIframeController(
+class YoutubeWebController extends PlatformWebViewController {
+  /// Constructs a [YoutubeWebController].
+  YoutubeWebController(
     PlatformWebViewControllerCreationParams params,
   ) : super.implementation(
-          params is WebYoutubePlayerIframeControllerCreationParams
+          params is YoutubeWebParams
               ? params
-              : WebYoutubePlayerIframeControllerCreationParams.fromPlatformWebViewControllerCreationParams(params),
+              : YoutubeWebParams.fromPlatformWebViewControllerCreationParams(params),
         );
 
-  WebYoutubePlayerIframeControllerCreationParams get creationParams {
-    return params as WebYoutubePlayerIframeControllerCreationParams;
+  YoutubeWebParams get creationParams {
+    return params as YoutubeWebParams;
   }
 
   late final JavaScriptChannelParams javaScriptChannelParams;
