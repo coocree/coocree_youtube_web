@@ -15,18 +15,20 @@ import 'platform_view_stub.dart' if (dart.library.html) 'dart:ui' as ui;
 /// An implementation of [PlatformWebViewControllerCreationParams] using Flutter
 /// for Web API.
 @immutable
-class YoutubeWebParams
-    extends PlatformWebViewControllerCreationParams {
-  /// Creates a [YoutubeWebParams] instance based on [PlatformWebViewControllerCreationParams].
+/// Classe que define os parâmetros de criação para a classe [YoutubeWebController].
+class YoutubeWebParams extends PlatformWebViewControllerCreationParams {
+
+  /// Cria uma instância da classe [YoutubeWebParams] com base em [PlatformWebViewControllerCreationParams].
   YoutubeWebParams.fromPlatformWebViewControllerCreationParams(
-      // Recommended placeholder to prevent being broken by platform interface.
-      // ignore: avoid_unused_constructor_parameters
+// Parâmetro recomendado para evitar ser quebrado pela interface da plataforma.
+// ignore: avoid_unused_constructor_parameters
       PlatformWebViewControllerCreationParams params,
       );
 
+  /// Próximo ID para o elemento IFrame.
   static int _nextIFrameId = 0;
 
-  /// The underlying element used as the WebView.
+  /// O elemento IFrame subjacente usado como WebView.
   @visibleForTesting
   final IFrameElement ytiFrame = IFrameElement()
     ..id = 'youtube-${_nextIFrameId++}'

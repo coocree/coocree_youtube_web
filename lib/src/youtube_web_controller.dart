@@ -12,9 +12,10 @@ import 'package:webview_flutter_platform_interface/webview_flutter_platform_inte
 
 import 'youtube_web_params.dart';
 
-/// An implementation of [PlatformWebViewController] using Flutter for Web API.
+
+/// Implementação de [PlatformWebViewController] usando a API Flutter para Web.
 class YoutubeWebController extends PlatformWebViewController {
-  /// Constructs a [YoutubeWebController].
+  /// Construtor para a classe [YoutubeWebController].
   YoutubeWebController(
     PlatformWebViewControllerCreationParams params,
   ) : super.implementation(
@@ -23,12 +24,17 @@ class YoutubeWebController extends PlatformWebViewController {
               : YoutubeWebParams.fromPlatformWebViewControllerCreationParams(params),
         );
 
+  /// Retorna os parâmetros de criação para o [YoutubeWebController].
   YoutubeWebParams get creationParams {
     return params as YoutubeWebParams;
   }
 
+  /// Parâmetros para o canal de JavaScript.
   late final JavaScriptChannelParams javaScriptChannelParams;
 
+  /// Carrega uma string HTML no WebView do [YoutubeWebController].
+  ///
+  /// Caso o navegador não suporte srcdoc, uma string codificada em URI será usada como fallback.
   @override
   Future<void> loadHtmlString(String html, {String? baseUrl}) {
     creationParams.ytiFrame.srcdoc = html;
@@ -43,6 +49,9 @@ class YoutubeWebController extends PlatformWebViewController {
     return SynchronousFuture(null);
   }
 
+  /// Executa código JavaScript na WebView do [YoutubeWebController].
+  ///
+  /// Usa o canal de JavaScript para enviar uma mensagem para a WebView com o código JavaScript.
   @override
   Future<void> runJavaScript(String javaScript) {
     final function = javaScript.replaceAll('"', '<<quote>>');
@@ -54,6 +63,9 @@ class YoutubeWebController extends PlatformWebViewController {
     return SynchronousFuture(null);
   }
 
+  /// Executa código JavaScript na WebView do [YoutubeWebController] e retorna o resultado.
+  ///
+  /// Usa o canal de JavaScript para enviar uma mensagem para a WebView com o código JavaScript e espera por uma resposta com o resultado.
   @override
   Future<String> runJavaScriptReturningResult(String javaScript) async {
     final contentWindow = creationParams.ytiFrame.contentWindow;
@@ -82,6 +94,8 @@ class YoutubeWebController extends PlatformWebViewController {
     return result;
   }
 
+
+  /// /// Adiciona um canal de JavaScript ao [YoutubeWebController].
   @override
   Future<void> addJavaScriptChannel(
     JavaScriptChannelParams params,
@@ -89,11 +103,13 @@ class YoutubeWebController extends PlatformWebViewController {
     javaScriptChannelParams = params;
   }
 
+  /// Define o modo de JavaScript para o [YoutubeWebController].
   @override
   Future<void> setJavaScriptMode(JavaScriptMode javaScriptMode) async {
     // no-op
   }
 
+  /// Define o delegado de navegação de plataforma para o [YoutubeWebController].
   @override
   Future<void> setPlatformNavigationDelegate(
     PlatformNavigationDelegate handler,
@@ -101,16 +117,19 @@ class YoutubeWebController extends PlatformWebViewController {
     // no-op
   }
 
+  /// Define o agente do usuário para o [YoutubeWebController].
   @override
   Future<void> setUserAgent(String? userAgent) async {
     // no-op
   }
 
+  /// Habilita/desabilita o zoom para o [YoutubeWebController].
   @override
   Future<void> enableZoom(bool enabled) async {
     // no-op
   }
 
+  /// Define a cor de fundo para o [YoutubeWebController].
   @override
   Future<void> setBackgroundColor(Color color) async {
     // no-op

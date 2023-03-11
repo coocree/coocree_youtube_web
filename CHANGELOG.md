@@ -7,3 +7,6 @@
 
 ## 1.0.2
 * Adicionado verificador de pacote
+
+## 1.0.3
+* Comentado todos os código em português

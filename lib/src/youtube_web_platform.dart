@@ -7,47 +7,56 @@ import 'package:webview_flutter_platform_interface/webview_flutter_platform_inte
 import 'package:coocree_youtube_web/src/youtube_web_controller.dart';
 import 'package:coocree_youtube_web/src/youtube_web_player.dart';
 
-/// An implementation of [WebViewPlatform] using Flutter for Web API.
+/// Implementação de [WebViewPlatform] usando a API Flutter para Web.
 class YoutubeWebPlatform extends WebViewPlatform {
+
+  /// Cria um novo [PlatformWebViewController].
   @override
   PlatformWebViewController createPlatformWebViewController(
-    PlatformWebViewControllerCreationParams params,
-  ) {
+      PlatformWebViewControllerCreationParams params,
+      ) {
     return YoutubeWebController(params);
   }
 
+  /// Cria um novo [PlatformWebViewWidget].
   @override
   PlatformWebViewWidget createPlatformWebViewWidget(
-    PlatformWebViewWidgetCreationParams params,
-  ) {
+      PlatformWebViewWidgetCreationParams params,
+      ) {
     return YoutubeWebPlayer(params);
   }
 
+  /// Cria um novo [PlatformNavigationDelegate].
   @override
   PlatformNavigationDelegate createPlatformNavigationDelegate(
-    PlatformNavigationDelegateCreationParams params,
-  ) {
+      PlatformNavigationDelegateCreationParams params,
+      ) {
     return WebNavigationDelegate(params);
   }
 
-  /// Gets called when the plugin is registered.
+  /// Chamado quando o plugin é registrado.
   static void registerWith(Registrar registrar) {
+    // Registra a instância da plataforma WebView.
     WebViewPlatform.instance = YoutubeWebPlatform();
   }
 }
 
-/// An implementation of [PlatformNavigationDelegate] using Flutter for Web API.
+/// Implementação de [PlatformNavigationDelegate] usando a API Flutter para Web.
 class WebNavigationDelegate extends PlatformNavigationDelegate {
-  /// Creates a new [WebNavigationDelegate] instance.
+
+  /// Cria uma nova instância de [WebNavigationDelegate].
   WebNavigationDelegate(PlatformNavigationDelegateCreationParams params) : super.implementation(params);
 
+  /// Define o callback de requisição de navegação.
   @override
   Future<void> setOnNavigationRequest(
-    NavigationRequestCallback onNavigationRequest,
-  ) async {}
+      NavigationRequestCallback onNavigationRequest,
+      ) async {}
 
+  /// Define o callback de erro de recursos da web.
   @override
   Future<void> setOnWebResourceError(
-    WebResourceErrorCallback onWebResourceError,
-  ) async {}
+      WebResourceErrorCallback onWebResourceError,
+      ) async {}
 }
+
