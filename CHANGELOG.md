@@ -4,3 +4,6 @@
 
 ## 1.0.1
 * Alterado nome de arquivos e classes
+
+## 1.0.2
+* Adicionado verificador de pacote

@@ -26,6 +26,8 @@ class YoutubeWebPlayer extends PlatformWebViewWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('YoutubeWebPlayer.build()--->>>');
+
     return HtmlElementView(
       key: params.key,
       viewType: (params.controller as YoutubeWebController).creationParams.ytiFrame.id,
